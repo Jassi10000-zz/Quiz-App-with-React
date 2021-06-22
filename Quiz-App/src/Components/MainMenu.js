@@ -1,18 +1,21 @@
 import React, { useContext } from "react";
-import { QuizContext } from "../Helpers/context";
+import { QuizContext } from "../Helpers/Context";
 import "../App.css";
 
-export default function MainMenu() {
+function MainMenu() {
 
-     const { gameState , setGameState } = useContext(QuizContext)
+     const { gameState , setGameState , userName , setUserName } = useContext(QuizContext);
 
     return (
         <div className="Menu">
-            <button onClick={() => {setGameState("quiz")}}> Test Button </button>
+            <label>Enter your name : </label>
+            <input type="text"  placeholder="Ex. John Doe" onChange={(event) => {setUserName(event.target.value)}}/>
+            <button onClick={() => {setGameState("playing")}}> Start Quiz </button>
         </div>
     )
 }
 
+export default MainMenu;
 
 
 
